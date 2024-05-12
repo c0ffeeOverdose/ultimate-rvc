@@ -713,7 +713,6 @@ def run_pipeline(
     output_sr=44100,
     output_format="mp3",
     keep_files=True,
-    return_files=False,
     progress=None,
 ):
     display_progress("[~] Starting song cover generation pipeline...", 0, progress)
@@ -774,7 +773,7 @@ def run_pipeline(
         keep_files,
         progress,
     )
-    if keep_files and return_files:
+    if keep_files:
         return (
             orig_song_path,
             vocals_path,
