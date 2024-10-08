@@ -1,0 +1,18 @@
+services:
+  ultimate-rvc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ultimate-rvc
+    volumes:
+      - LOCAL_audio:audio
+      - LOCAL_models:models
+    ports:
+      - "7860:7860"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
